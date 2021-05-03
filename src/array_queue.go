@@ -2,7 +2,7 @@ package src
 
 import "errors"
 
-// 顺序栈
+// 顺序队列
 type arrayQueue struct {
 	nodes []interface{}
 	len   int
@@ -11,7 +11,7 @@ type arrayQueue struct {
 	tail  int
 }
 
-// 创建栈
+// 创建队列
 func CreateArrayQueue(n int) *arrayQueue {
 	return &arrayQueue{
 		nodes: make([]interface{}, n),
