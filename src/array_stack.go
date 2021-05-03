@@ -20,7 +20,7 @@ func CreateArrayStack(n int) *arrayStack {
 
 // 出栈
 func (receiver *arrayStack) Push(value interface{}) error {
-	if (receiver.count + 1) == receiver.len {
+	if receiver.count == receiver.len {
 		return errors.New("full")
 	}
 	receiver.nodes[receiver.count] = value
