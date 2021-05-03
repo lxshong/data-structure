@@ -24,7 +24,7 @@ func CreateArrayQueue(n int) *arrayQueue {
 
 // 入队列
 func (receiver *arrayQueue) Enqueue(value interface{}) error {
-	if receiver.isFull() {
+	if receiver.len == receiver.count {
 		return errors.New("full")
 	}
 	receiver.nodes[receiver.tail] = value
@@ -38,7 +38,7 @@ func (receiver *arrayQueue) Enqueue(value interface{}) error {
 
 // 出队列
 func (receiver *arrayQueue) Dequeue() (interface{}, error) {
-	if receiver.isEmpty() {
+	if receiver.count == 0 {
 		return nil, errors.New("empty")
 	}
 	value := receiver.nodes[receiver.head]
@@ -48,12 +48,4 @@ func (receiver *arrayQueue) Dequeue() (interface{}, error) {
 		receiver.head = 0
 	}
 	return value, nil
-}
-
-func (receiver *arrayQueue) isEmpty() bool {
-	return receiver.count == 0
-}
-
-func (receiver *arrayQueue) isFull() bool {
-	return receiver.len == receiver.count
 }
