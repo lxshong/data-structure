@@ -6,7 +6,7 @@ import (
 )
 
 func TestNewLinkedList(t *testing.T) {
-	list := src.NewLinkedList()
+	list := src.NewSingleLinkedList()
 	if list.Count() != 0 {
 		t.Error("初始化异常1")
 	}
@@ -16,7 +16,7 @@ func TestNewLinkedList(t *testing.T) {
 }
 
 func TestInsert(t *testing.T) {
-	list := src.NewLinkedList()
+	list := src.NewSingleLinkedList()
 	list.Insert(0, 1)
 	list.Insert(0, 2)
 	list.Insert(1, 3)
@@ -50,7 +50,7 @@ func TestInsert(t *testing.T) {
 }
 
 func TestListPrint(t *testing.T) {
-	list := src.NewLinkedList()
+	list := src.NewSingleLinkedList()
 	list.Insert(0, 1)
 	list.Insert(0, 2)
 	list.Insert(1, 3)
@@ -59,7 +59,7 @@ func TestListPrint(t *testing.T) {
 }
 
 func TestGet(t *testing.T) {
-	list := src.NewLinkedList()
+	list := src.NewSingleLinkedList()
 	list.Insert(0, 1)
 	list.Insert(0, 2)
 	list.Insert(1, 3)
@@ -79,7 +79,7 @@ func TestGet(t *testing.T) {
 }
 
 func TestUpdate(t *testing.T) {
-	list := src.NewLinkedList()
+	list := src.NewSingleLinkedList()
 	list.Insert(0, 1)
 	list.Insert(0, 2)
 	list.Insert(1, 3)
@@ -111,7 +111,7 @@ func TestUpdate(t *testing.T) {
 }
 
 func TestDelete(t *testing.T) {
-	list := src.NewLinkedList()
+	list := src.NewSingleLinkedList()
 	list.Insert(0, 1)
 	list.Insert(0, 2)
 	list.Insert(1, 3)

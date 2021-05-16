@@ -7,7 +7,7 @@ import (
 
 type NodeValType interface{}
 
-type LinkedList struct {
+type SingleLinkedList struct {
 	first   *Node
 	count   int
 	compare func(val1 NodeValType, val2 NodeValType) bool
@@ -18,8 +18,9 @@ type Node struct {
 	next *Node
 }
 
-func NewLinkedList() *LinkedList {
-	return &LinkedList{
+// 获取一个单链表
+func NewSingleLinkedList() *SingleLinkedList {
+	return &SingleLinkedList{
 		first: nil,
 		count: 0,
 	}
@@ -45,7 +46,7 @@ func (n *Node) Next() *Node {
 }
 
 // 打印链表
-func (l *LinkedList) ListPrint() error {
+func (l *SingleLinkedList) ListPrint() error {
 	node, index := l.first, 0
 	for node != nil {
 		fmt.Println(index, node.val)
@@ -56,7 +57,7 @@ func (l *LinkedList) ListPrint() error {
 }
 
 // 查询index对应的节点
-func (l *LinkedList) Get(index int) (*Node, error) {
+func (l *SingleLinkedList) Get(index int) (*Node, error) {
 	if index < 0 || index > l.count-1 {
 		return nil, errors.New("操作越界")
 	}
@@ -80,7 +81,7 @@ func (l *LinkedList) Get(index int) (*Node, error) {
 }
 
 // 插入
-func (l *LinkedList) Insert(index int, val NodeValType) error {
+func (l *SingleLinkedList) Insert(index int, val NodeValType) error {
 	if index < 0 || index > l.count {
 		return errors.New("操作越界")
 	}
@@ -108,7 +109,7 @@ func (l *LinkedList) Insert(index int, val NodeValType) error {
 }
 
 // 更新
-func (l *LinkedList) Update(index int, val NodeValType) error {
+func (l *SingleLinkedList) Update(index int, val NodeValType) error {
 	if node, err := l.Get(index); err != nil || node == nil {
 		return err
 	} else {
@@ -120,7 +121,7 @@ func (l *LinkedList) Update(index int, val NodeValType) error {
 }
 
 // 删除
-func (l *LinkedList) Delete(index int) (*Node, error) {
+func (l *SingleLinkedList) Delete(index int) (*Node, error) {
 	if index < 0 || index > l.count-1 {
 		return nil, errors.New("操作越界")
 	}
@@ -146,7 +147,7 @@ func (l *LinkedList) Delete(index int) (*Node, error) {
 }
 
 // 获取链表长度
-func (l *LinkedList) Count() int {
+func (l *SingleLinkedList) Count() int {
 	return l.count
 }
 
