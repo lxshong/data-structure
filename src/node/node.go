@@ -9,7 +9,7 @@ type Node struct {
 	next *Node
 }
 
-func New(val NodeValType) *Node {
+func NewNode(val NodeValType) *Node {
 	return &Node{
 		val: val,
 	}
