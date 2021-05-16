@@ -10,7 +10,7 @@ func TestNewLinkedList(t *testing.T) {
 	if list.Count() != 0 {
 		t.Error("初始化异常1")
 	}
-	if node, err := list.Get(0); node != nil || err != nil {
+	if node, err := list.Get(0); node != nil || err == nil {
 		t.Error("初始化异常2")
 	}
 }
